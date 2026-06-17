@@ -11,14 +11,22 @@ export default function Hero() {
     <section className="relative min-h-screen flex items-center justify-center overflow-hidden">
 
       {/* Background layers */}
-      <div className="absolute inset-0 bg-bg-primary" />
+      {/* Layer 1: real photo */}
+      <img
+        src="https://images.unsplash.com/photo-AsElqHmuGgY?auto=format&fit=crop&w=1920&q=85"
+        alt=""
+        aria-hidden="true"
+        className="absolute inset-0 w-full h-full object-cover object-center"
+      />
+      {/* Layer 2: dark overlay so text stays readable */}
+      <div className="absolute inset-0 bg-bg-primary/75" />
+      {/* Layer 3: teal/gold glow accents */}
       <div
         className="absolute inset-0"
         style={{
           background: `
-            radial-gradient(ellipse 80% 60% at 10% 90%, rgba(26,191,174,0.12) 0%, transparent 60%),
-            radial-gradient(ellipse 60% 50% at 90% 10%, rgba(201,168,76,0.10) 0%, transparent 55%),
-            radial-gradient(ellipse 40% 40% at 50% 50%, rgba(26,191,174,0.04) 0%, transparent 70%)
+            radial-gradient(ellipse 80% 60% at 10% 90%, rgba(26,191,174,0.14) 0%, transparent 60%),
+            radial-gradient(ellipse 60% 50% at 90% 10%, rgba(201,168,76,0.10) 0%, transparent 55%)
           `,
         }}
       />

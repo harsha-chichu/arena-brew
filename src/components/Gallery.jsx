@@ -1,41 +1,44 @@
 import { useRef } from 'react'
 import { motion, useInView } from 'framer-motion'
 
+const BASE = 'https://images.unsplash.com/photo-'
+const Q = '?auto=format&fit=crop&q=85'
+
 const galleryItems = [
   {
     label: 'The Pyramid',
     sublabel: 'Iconic Exterior',
-    gradient: 'radial-gradient(ellipse at 40% 60%, rgba(26,191,174,0.25) 0%, rgba(8,8,20,0.95) 70%)',
+    img: `${BASE}Bs1e5QtmXGM${Q}&w=600&h=900`,
     size: 'row-span-2',
   },
   {
     label: 'The Bar',
     sublabel: 'Main Floor',
-    gradient: 'radial-gradient(ellipse at 60% 40%, rgba(201,168,76,0.22) 0%, rgba(8,8,20,0.95) 70%)',
+    img: `${BASE}QnrPaa9pCdE${Q}&w=700&h=500`,
     size: '',
   },
   {
     label: 'Craft Beer',
     sublabel: 'Straight from the tap',
-    gradient: 'radial-gradient(ellipse at 50% 50%, rgba(201,168,76,0.3) 0%, rgba(8,8,20,0.95) 60%)',
+    img: `${BASE}W9WN_cIR9JM${Q}&w=700&h=500`,
     size: '',
   },
   {
     label: 'Brew Kitchen',
     sublabel: 'Asian · Continental',
-    gradient: 'radial-gradient(ellipse at 30% 70%, rgba(201,168,76,0.2) 0%, rgba(8,8,20,0.95) 65%)',
+    img: `${BASE}rwLTQ7eyBx0${Q}&w=900&h=500`,
     size: 'col-span-2',
   },
   {
     label: 'DJ Floor',
     sublabel: 'Level 3 · Rooftop',
-    gradient: 'radial-gradient(ellipse at 50% 40%, rgba(26,191,174,0.2) 0%, rgba(8,8,20,0.95) 65%)',
+    img: `${BASE}JkxKNakAwLI${Q}&w=700&h=500`,
     size: '',
   },
   {
     label: 'Cocktails',
     sublabel: 'Crafty & Potent',
-    gradient: 'radial-gradient(ellipse at 60% 60%, rgba(184,197,212,0.18) 0%, rgba(8,8,20,0.95) 65%)',
+    img: `${BASE}9P1pZy3gwxg${Q}&w=700&h=500`,
     size: '',
   },
 ]
@@ -72,21 +75,17 @@ export default function Gallery() {
               animate={inView ? { opacity: 1, scale: 1 } : {}}
               transition={{ delay: i * 0.08 + 0.1, duration: 0.7, ease: [0.22, 1, 0.36, 1] }}
               className={`group relative overflow-hidden cursor-pointer ${item.size}`}
-              style={{ background: item.gradient }}
             >
-              {/* Replace with real venue photos — these are styled placeholders */}
-              <div className="absolute inset-0 bg-bg-card border border-white/5" />
-              <div
-                className="absolute inset-0 opacity-60 group-hover:opacity-80 transition-opacity duration-500"
-                style={{ background: item.gradient }}
+              {/* Real photo */}
+              <img
+                src={item.img}
+                alt={item.label}
+                className="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
               />
+              {/* Permanent dark scrim so label is always readable */}
+              <div className="absolute inset-0 bg-bg-primary/30" />
 
-              {/* Decorative element */}
-              <div className="absolute inset-0 flex items-center justify-center opacity-5 select-none">
-                <span className="font-display text-8xl text-white">{item.label[0]}</span>
-              </div>
-
-              {/* Overlay on hover */}
+              {/* Overlay darkens more on hover */}
               <div className="absolute inset-0 bg-bg-primary/40 opacity-0 group-hover:opacity-100 transition-opacity duration-400" />
 
               {/* Label */}
@@ -109,7 +108,7 @@ export default function Gallery() {
           transition={{ delay: 0.8, duration: 0.8 }}
           className="font-sans text-[11px] tracking-widest uppercase text-text-muted text-center mt-8"
         >
-          Photography courtesy of Arena Brewhouse · Replace placeholders with real venue imagery
+          Photography via Unsplash · Replace with real venue imagery for production
         </motion.p>
       </div>
     </section>

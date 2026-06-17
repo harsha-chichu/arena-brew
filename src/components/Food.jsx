@@ -100,22 +100,18 @@ export default function Food() {
             transition={{ duration: 0.9, delay: 0.2, ease: [0.22, 1, 0.36, 1] }}
             className="md:col-span-2 flex flex-col gap-6"
           >
-            {/* Large image placeholder */}
-            <div
-              className="flex-1 min-h-[300px] md:min-h-0 relative overflow-hidden rounded-sm"
-              style={{
-                background: `
-                  radial-gradient(ellipse at 50% 30%, rgba(201,168,76,0.2) 0%, rgba(8,8,16,0.9) 60%),
-                  linear-gradient(180deg, #0d0d1a 0%, #12101a 100%)
-                `,
-              }}
-            >
-              <div className="absolute inset-0 flex flex-col items-center justify-center gap-3 opacity-30">
-                <span className="font-display text-6xl text-accent-gold">FOOD</span>
-                <span className="font-sans text-[10px] tracking-widest uppercase text-text-muted">
-                  Replace with food photo
-                </span>
-              </div>
+            {/* Real food photo */}
+            <div className="flex-1 min-h-[300px] md:min-h-0 relative overflow-hidden rounded-sm">
+              <img
+                src="https://images.unsplash.com/photo-CIlzXVlYQJQ?auto=format&fit=crop&w=800&h=700&q=85"
+                alt="Artisanal cuisine at Arena Brewkitchen"
+                className="absolute inset-0 w-full h-full object-cover"
+              />
+              {/* Bottom gradient for label legibility */}
+              <div
+                className="absolute inset-x-0 bottom-0 h-2/5 pointer-events-none"
+                style={{ background: 'linear-gradient(to top, rgba(8,8,16,0.75) 0%, transparent 100%)' }}
+              />
             </div>
 
             {/* CTA block */}

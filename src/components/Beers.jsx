@@ -94,10 +94,16 @@ export default function Beers() {
             animate={inView ? { opacity: 1, y: 0 } : {}}
             transition={{ delay: i * 0.1 + 0.2, duration: 0.7, ease: [0.22, 1, 0.36, 1] }}
             className="group flex-shrink-0 w-72 md:w-80 snap-start relative rounded-sm overflow-hidden cursor-pointer"
-            style={{ background: beer.bgGradient }}
+            style={{
+              background: beer.bgGradient,
+              boxShadow: '0 0 0 rgba(26,191,174,0)',
+              transition: 'box-shadow 0.5s ease',
+            }}
+            onMouseEnter={e => e.currentTarget.style.boxShadow = `0 0 40px rgba(26,191,174,0.10)`}
+            onMouseLeave={e => e.currentTarget.style.boxShadow = '0 0 0 rgba(26,191,174,0)'}
           >
             {/* Card background */}
-            <div className="absolute inset-0 bg-bg-card border border-white/5 group-hover:border-accent-teal/20 transition-all duration-500" />
+            <div className="absolute inset-0 bg-bg-card border border-white/5 group-hover:border-accent-teal/30 transition-all duration-500" />
             <div
               className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-all duration-500"
               style={{ background: beer.bgGradient }}

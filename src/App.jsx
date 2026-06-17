@@ -9,6 +9,10 @@ import Gallery from './components/Gallery'
 import Reservation from './components/Reservation'
 import Footer from './components/Footer'
 
+const Divider = () => (
+  <div className="section-divider mx-auto max-w-7xl" />
+)
+
 export default function App() {
   return (
     <div className="bg-bg-primary text-text-primary font-sans">
@@ -16,10 +20,15 @@ export default function App() {
       <Hero />
       <Ticker />
       <About />
+      <Divider />
       <Beers />
+      <Divider />
       <Food />
+      <Divider />
       <Cocktails />
+      <Divider />
       <Gallery />
+      <Divider />
       <Reservation />
       <Footer />
     </div>

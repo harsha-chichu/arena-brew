@@ -33,33 +33,26 @@ export default function About() {
             01
           </span>
 
-          {/* Image placeholder — replace with real venue photo */}
           <div className="relative aspect-[4/5] rounded-sm overflow-hidden">
+            {/* Real brewery photo */}
+            <img
+              src="https://images.unsplash.com/photo-ffocc9z8igo?auto=format&fit=crop&w=800&q=85"
+              alt="Arena Brewhouse brewery interior"
+              className="absolute inset-0 w-full h-full object-cover"
+            />
+            {/* Dark teal tint overlay for brand cohesion */}
             <div
               className="absolute inset-0"
-              style={{
-                background: `
-                  radial-gradient(ellipse at 30% 70%, rgba(26,191,174,0.25) 0%, rgba(8,8,16,0.9) 60%),
-                  radial-gradient(ellipse at 80% 20%, rgba(201,168,76,0.15) 0%, transparent 50%),
-                  linear-gradient(180deg, #0d0d1a 0%, #101025 100%)
-                `,
-              }}
+              style={{ background: 'linear-gradient(180deg, rgba(8,8,16,0.2) 0%, rgba(8,8,16,0.55) 100%)' }}
             />
 
-            {/* Decorative pyramid outline inside image area */}
+            {/* Decorative pyramid outline on top of image */}
             <div className="absolute inset-0 flex items-center justify-center">
-              <svg viewBox="0 0 200 200" className="w-48 h-48 opacity-30" fill="none">
+              <svg viewBox="0 0 200 200" className="w-40 h-40 opacity-20" fill="none">
                 <polygon points="100,10 190,100 100,190 10,100" stroke="#1ABFAE" strokeWidth="1" />
                 <polygon points="100,30 170,100 100,170 30,100" stroke="#C9A84C" strokeWidth="0.5" />
                 <polygon points="100,55 145,100 100,145 55,100" stroke="#1ABFAE" strokeWidth="0.5" />
               </svg>
-            </div>
-
-            {/* Photo label */}
-            <div className="absolute bottom-4 left-4 right-4">
-              <p className="font-sans text-[10px] tracking-[0.3em] uppercase text-accent-teal/60">
-                Replace with venue photography
-              </p>
             </div>
           </div>
 
