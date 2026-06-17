@@ -8,6 +8,7 @@ const cocktails = [
     desc: 'Butter-washed bourbon, caramel liqueur, popcorn-infused syrup, smoked salt rim.',
     notes: ['Bourbon Base', 'Caramel', 'Smoked Salt'],
     color: '#C9A84C',
+    num: '01',
   },
   {
     name: 'Apple Pie',
@@ -15,6 +16,7 @@ const cocktails = [
     desc: 'Cinnamon-spiced vodka, fresh apple juice, vanilla syrup, pie-crust crumble garnish.',
     notes: ['Spiced Vodka', 'Fresh Apple', 'Vanilla'],
     color: '#E8D870',
+    num: '02',
   },
   {
     name: 'The Arena',
@@ -22,6 +24,7 @@ const cocktails = [
     desc: 'House IPA reduction, gin, elderflower, citrus foam, served on the rocks with teal butterfly pea ice.',
     notes: ['Gin', 'IPA Reduction', 'Elderflower'],
     color: '#1ABFAE',
+    num: '03',
   },
 ]
 
@@ -31,116 +34,115 @@ export default function Cocktails() {
 
   return (
     <section id="cocktails" className="py-24 md:py-36 relative overflow-hidden" ref={ref}>
-      {/* Atmospheric neon bar background photo at low opacity */}
+      {/* Atmospheric bar background */}
       <img
         src="https://images.pexels.com/photos/1801106/pexels-photo-1801106.jpeg?auto=compress&cs=tinysrgb&w=1600"
         alt=""
         aria-hidden="true"
-        className="absolute inset-0 w-full h-full object-cover opacity-[0.07] mix-blend-luminosity pointer-events-none"
+        className="absolute inset-0 w-full h-full object-cover opacity-[0.09] mix-blend-luminosity pointer-events-none"
       />
-      {/* Dark overlay + teal glow */}
       <div
         className="absolute inset-0 pointer-events-none"
         style={{
-          background: `
-            radial-gradient(ellipse 70% 80% at 50% 50%, rgba(26,191,174,0.07) 0%, transparent 70%),
-            rgba(8,8,16,0.6)
-          `,
+          background: 'radial-gradient(ellipse 80% 60% at 50% 40%, rgba(26,191,174,0.08) 0%, transparent 65%), rgba(8,8,16,0.65)',
         }}
       />
 
-      <div className="max-w-7xl mx-auto px-6 md:px-10 relative z-10">
+      <div className="max-w-[1400px] mx-auto px-6 md:px-14 relative z-10">
+
         {/* Header */}
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           animate={inView ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 0.8 }}
-          className="text-center mb-16 md:mb-20"
+          className="mb-16 md:mb-20"
         >
           <p className="font-sans text-xs tracking-[0.4em] uppercase text-accent-teal mb-4">
-            Crafty & Potent
+            Crafty &amp; Potent
           </p>
-          <h2 className="font-display text-6xl md:text-8xl leading-none tracking-wide text-text-primary mb-4">
-            SIGNATURES
-          </h2>
-          <p className="font-serif italic text-xl text-text-muted max-w-md mx-auto">
-            Every cocktail tells a story. Every sip, a revelation.
-          </p>
+          <div className="flex flex-col md:flex-row md:items-end md:justify-between gap-4">
+            <h2
+              className="font-display leading-none tracking-wide text-text-primary"
+              style={{ fontSize: 'clamp(64px, 12vw, 140px)' }}
+            >
+              SIGNATURES
+            </h2>
+            <p className="font-serif italic text-lg md:text-xl text-text-muted md:max-w-[260px] md:text-right">
+              Every cocktail tells a story.<br />Every sip, a revelation.
+            </p>
+          </div>
         </motion.div>
 
-        {/* Cocktail cards */}
-        <div className="grid md:grid-cols-3 gap-6 md:gap-8">
+        {/* Cards — stacked on mobile, 3-col on desktop */}
+        <div className="grid md:grid-cols-3 gap-px bg-white/[0.05]">
           {cocktails.map((c, i) => (
             <motion.div
               key={c.name}
               initial={{ opacity: 0, y: 40 }}
               animate={inView ? { opacity: 1, y: 0 } : {}}
               transition={{ delay: i * 0.15 + 0.2, duration: 0.8, ease: [0.22, 1, 0.36, 1] }}
-              className="group relative bg-bg-card/90 border border-white/5 hover:border-white/15 transition-all duration-500 p-8 md:p-10 overflow-hidden"
-              style={{ backdropFilter: 'blur(8px)' }}
+              className="group relative bg-bg-card/90 overflow-hidden cursor-pointer"
+              style={{ backdropFilter: 'blur(8px)', minHeight: '400px' }}
             >
-              {/* Background glow on hover */}
+              {/* Top color bar */}
+              <div className="h-[3px] w-full" style={{ background: c.color }} />
+
+              {/* Hover glow */}
               <div
                 className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-700 pointer-events-none"
-                style={{
-                  background: `radial-gradient(ellipse at 50% 80%, ${c.color}22 0%, transparent 65%)`,
-                }}
+                style={{ background: `radial-gradient(ellipse 70% 60% at 50% 90%, ${c.color}1A 0%, transparent 70%)` }}
               />
 
-              {/* Decorative number */}
+              {/* Big number — background */}
               <div
-                className="font-display text-[100px] leading-none opacity-[0.06] select-none pointer-events-none absolute -top-4 right-4"
-                style={{ color: c.color }}
+                className="absolute -right-2 -top-6 font-display leading-none select-none pointer-events-none"
+                style={{ color: c.color, opacity: 0.06, fontSize: 'clamp(100px, 14vw, 160px)' }}
               >
-                {String(i + 1).padStart(2, '0')}
+                {c.num}
               </div>
 
-              <div className="relative z-10">
-                {/* Color dot */}
-                <div
-                  className="w-2 h-2 rounded-full mb-6"
-                  style={{ backgroundColor: c.color }}
-                />
+              <div className="relative z-10 p-8 md:p-10 flex flex-col h-full">
 
-                {/* Name */}
-                <h3
-                  className="font-display text-4xl tracking-wider mb-1"
-                  style={{ color: c.color }}
-                >
-                  {c.name.toUpperCase()}
-                </h3>
+                {/* Name block */}
+                <div className="mb-auto">
+                  <h3
+                    className="font-display leading-none tracking-wider mb-2"
+                    style={{ color: c.color, fontSize: 'clamp(40px, 6vw, 64px)' }}
+                  >
+                    {c.name.toUpperCase()}
+                  </h3>
+                  <p className="font-serif italic text-text-muted text-base">{c.tagline}</p>
+                </div>
 
-                {/* Tagline */}
-                <p className="font-serif italic text-text-muted text-sm mb-5">{c.tagline}</p>
+                {/* Description + notes */}
+                <div className="mt-8 pt-6 border-t border-white/[0.06]">
+                  <p className="font-sans text-text-muted text-sm leading-relaxed mb-6">
+                    {c.desc}
+                  </p>
 
-                {/* Description */}
-                <p className="font-sans text-text-muted text-sm leading-relaxed mb-7">
-                  {c.desc}
-                </p>
-
-                {/* Flavor notes */}
-                <div className="flex flex-wrap gap-2 pt-5 border-t border-white/5">
-                  {c.notes.map((note) => (
-                    <span
-                      key={note}
-                      className="font-sans text-[10px] tracking-[0.25em] uppercase px-3 py-1 border"
-                      style={{ color: `${c.color}99`, borderColor: `${c.color}25` }}
-                    >
-                      {note}
-                    </span>
-                  ))}
+                  <div className="flex flex-wrap gap-2">
+                    {c.notes.map((note) => (
+                      <span
+                        key={note}
+                        className="font-sans text-[10px] tracking-[0.25em] uppercase px-3 py-1.5 border"
+                        style={{ color: `${c.color}A0`, borderColor: `${c.color}25`, background: `${c.color}08` }}
+                      >
+                        {note}
+                      </span>
+                    ))}
+                  </div>
                 </div>
               </div>
             </motion.div>
           ))}
         </div>
 
-        {/* Bottom line */}
+        {/* Footer note */}
         <motion.p
           initial={{ opacity: 0 }}
           animate={inView ? { opacity: 1 } : {}}
           transition={{ delay: 0.7, duration: 0.8 }}
-          className="text-center font-sans text-text-muted text-xs tracking-widest uppercase mt-12"
+          className="text-center font-sans text-text-muted text-xs tracking-widest uppercase mt-8"
         >
           Full cocktail menu available at the bar · Please drink responsibly
         </motion.p>
