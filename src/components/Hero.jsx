@@ -13,7 +13,7 @@ export default function Hero() {
       {/* Background layers */}
       {/* Layer 1: real photo */}
       <img
-        src="https://images.unsplash.com/photo-AsElqHmuGgY?auto=format&fit=crop&w=1920&q=85"
+        src="https://images.pexels.com/photos/5490965/pexels-photo-5490965.jpeg?auto=compress&cs=tinysrgb&w=1920"
         alt=""
         aria-hidden="true"
         className="absolute inset-0 w-full h-full object-cover object-center"

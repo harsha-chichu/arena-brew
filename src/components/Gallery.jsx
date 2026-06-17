@@ -1,44 +1,44 @@
 import { useRef } from 'react'
 import { motion, useInView } from 'framer-motion'
 
-const BASE = 'https://images.unsplash.com/photo-'
-const Q = '?auto=format&fit=crop&q=85'
+const PX = 'https://images.pexels.com/photos/'
+const PQ = '?auto=compress&cs=tinysrgb'
 
 const galleryItems = [
   {
     label: 'The Pyramid',
     sublabel: 'Iconic Exterior',
-    img: `${BASE}Bs1e5QtmXGM${Q}&w=600&h=900`,
+    img: `${PX}5538223/pexels-photo-5538223.jpeg${PQ}&w=600&h=900`,
     size: 'row-span-2',
   },
   {
     label: 'The Bar',
     sublabel: 'Main Floor',
-    img: `${BASE}QnrPaa9pCdE${Q}&w=700&h=500`,
+    img: `${PX}5490965/pexels-photo-5490965.jpeg${PQ}&w=700&h=500`,
     size: '',
   },
   {
     label: 'Craft Beer',
     sublabel: 'Straight from the tap',
-    img: `${BASE}W9WN_cIR9JM${Q}&w=700&h=500`,
+    img: `${PX}5864291/pexels-photo-5864291.jpeg${PQ}&w=700&h=500`,
     size: '',
   },
   {
     label: 'Brew Kitchen',
     sublabel: 'Asian · Continental',
-    img: `${BASE}rwLTQ7eyBx0${Q}&w=900&h=500`,
+    img: `${PX}246747/pexels-photo-246747.jpeg${PQ}&w=900&h=500`,
     size: 'col-span-2',
   },
   {
     label: 'DJ Floor',
     sublabel: 'Level 3 · Rooftop',
-    img: `${BASE}JkxKNakAwLI${Q}&w=700&h=500`,
+    img: `${PX}1801106/pexels-photo-1801106.jpeg${PQ}&w=700&h=500`,
     size: '',
   },
   {
     label: 'Cocktails',
     sublabel: 'Crafty & Potent',
-    img: `${BASE}9P1pZy3gwxg${Q}&w=700&h=500`,
+    img: `${PX}2707972/pexels-photo-2707972.jpeg${PQ}&w=700&h=500`,
     size: '',
   },
 ]

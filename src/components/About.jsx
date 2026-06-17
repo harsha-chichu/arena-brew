@@ -36,7 +36,7 @@ export default function About() {
           <div className="relative aspect-[4/5] rounded-sm overflow-hidden">
             {/* Real brewery photo */}
             <img
-              src="https://images.unsplash.com/photo-ffocc9z8igo?auto=format&fit=crop&w=800&q=85"
+              src="https://images.pexels.com/photos/5864291/pexels-photo-5864291.jpeg?auto=compress&cs=tinysrgb&w=800&h=1000"
               alt="Arena Brewhouse brewery interior"
               className="absolute inset-0 w-full h-full object-cover"
             />

@@ -33,7 +33,7 @@ export default function Cocktails() {
     <section id="cocktails" className="py-24 md:py-36 relative overflow-hidden" ref={ref}>
       {/* Atmospheric neon bar background photo at low opacity */}
       <img
-        src="https://images.unsplash.com/photo-e2zmMst976M?auto=format&fit=crop&w=1600&q=70"
+        src="https://images.pexels.com/photos/1801106/pexels-photo-1801106.jpeg?auto=compress&cs=tinysrgb&w=1600"
         alt=""
         aria-hidden="true"
         className="absolute inset-0 w-full h-full object-cover opacity-[0.07] mix-blend-luminosity pointer-events-none"

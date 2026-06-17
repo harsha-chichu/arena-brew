@@ -103,7 +103,7 @@ export default function Food() {
             {/* Real food photo */}
             <div className="flex-1 min-h-[300px] md:min-h-0 relative overflow-hidden rounded-sm">
               <img
-                src="https://images.unsplash.com/photo-CIlzXVlYQJQ?auto=format&fit=crop&w=800&h=700&q=85"
+                src="https://images.pexels.com/photos/539430/pexels-photo-539430.jpeg?auto=compress&cs=tinysrgb&w=800&h=700"
                 alt="Artisanal cuisine at Arena Brewkitchen"
                 className="absolute inset-0 w-full h-full object-cover"
               />
