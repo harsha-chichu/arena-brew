@@ -1,10 +1,13 @@
 import { motion } from 'framer-motion'
 
+const timeSlots = ['12:00 PM', '1:00 PM', '2:00 PM', '6:00 PM', '7:00 PM', '8:00 PM', '9:00 PM', '10:00 PM']
+const guestOptions = ['1–2 Guests', '3–4 Guests', '5–8 Guests', '9+ Guests']
+
 export default function Hero() {
   return (
     <section className="relative min-h-screen overflow-hidden">
 
-      {/* Background photo — gradient overlay fades left (dark) to right (photo visible) */}
+      {/* Background photo */}
       <img
         src="https://images.pexels.com/photos/5490965/pexels-photo-5490965.jpeg?auto=compress&cs=tinysrgb&w=1920"
         alt=""
@@ -16,7 +19,7 @@ export default function Hero() {
         style={{
           background: `
             linear-gradient(100deg, rgba(8,8,16,0.97) 0%, rgba(8,8,16,0.80) 45%, rgba(8,8,16,0.30) 100%),
-            linear-gradient(to top, rgba(8,8,16,0.85) 0%, transparent 40%)
+            linear-gradient(to top, rgba(8,8,16,0.95) 0%, transparent 35%)
           `,
         }}
       />
@@ -24,15 +27,15 @@ export default function Hero() {
       <div
         className="absolute inset-0 pointer-events-none"
         style={{
-          background: 'radial-gradient(ellipse 60% 50% at 5% 95%, rgba(26,191,174,0.18) 0%, transparent 55%)',
+          background: 'radial-gradient(ellipse 60% 50% at 5% 95%, rgba(26,191,174,0.15) 0%, transparent 55%)',
         }}
       />
 
       {/* Decorative vertical teal line — right side */}
-      <div className="absolute right-10 md:right-16 top-24 bottom-16 w-px bg-gradient-to-b from-transparent via-accent-teal/25 to-transparent hidden md:block" />
+      <div className="absolute right-10 md:right-16 top-24 bottom-28 w-px bg-gradient-to-b from-transparent via-accent-teal/25 to-transparent hidden md:block" />
 
-      {/* Content — bottom-left anchored */}
-      <div className="relative z-10 min-h-screen flex flex-col justify-end px-6 md:px-14 pb-14 md:pb-20 max-w-[1400px] mx-auto w-full">
+      {/* Content — bottom-left anchored, extra padding-bottom for booking strip */}
+      <div className="relative z-10 min-h-screen flex flex-col justify-end px-6 md:px-14 pb-36 md:pb-40 max-w-[1400px] mx-auto w-full">
 
         {/* Eyebrow */}
         <motion.div
@@ -47,7 +50,7 @@ export default function Hero() {
           </span>
         </motion.div>
 
-        {/* Giant headline — bleeds left */}
+        {/* Giant headline */}
         <motion.div
           initial={{ opacity: 0, y: 50 }}
           animate={{ opacity: 1, y: 0 }}
@@ -105,9 +108,9 @@ export default function Hero() {
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ delay: 1.2, duration: 1 }}
-          className="absolute right-10 md:right-16 bottom-12 flex flex-col items-center gap-2 hidden md:flex"
+          className="absolute right-10 md:right-16 bottom-36 md:bottom-44 flex-col items-center gap-2 hidden md:flex"
         >
-          <span className="font-sans text-[9px] tracking-[0.3em] uppercase text-text-muted writing-mode-vertical">Scroll</span>
+          <span className="font-sans text-[9px] tracking-[0.3em] uppercase text-text-muted">Scroll</span>
           <motion.div
             animate={{ y: [0, 8, 0] }}
             transition={{ duration: 1.5, repeat: Infinity, ease: 'easeInOut' }}
@@ -115,6 +118,56 @@ export default function Hero() {
           />
         </motion.div>
       </div>
+
+      {/* Horizontal booking strip — pinned to bottom of hero */}
+      <motion.div
+        initial={{ opacity: 0, y: 20 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.8, delay: 0.9 }}
+        className="absolute bottom-0 left-0 right-0 z-20 border-t border-white/[0.08]"
+        style={{ background: 'rgba(8,8,16,0.85)', backdropFilter: 'blur(20px)' }}
+      >
+        <form
+          onSubmit={e => { e.preventDefault(); document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' }) }}
+          className="max-w-[1400px] mx-auto px-6 md:px-14 py-4 flex flex-col md:flex-row items-stretch md:items-center gap-3"
+        >
+          <div className="flex-1 flex flex-col md:flex-row gap-3">
+            <div className="flex-1 relative">
+              <label className="absolute top-1.5 left-4 font-sans text-[9px] tracking-[0.3em] uppercase text-text-muted pointer-events-none">Date</label>
+              <input
+                type="date"
+                className="w-full bg-white/[0.05] border border-white/[0.08] text-text-primary font-sans text-sm px-4 pt-5 pb-2 focus:outline-none focus:border-accent-teal transition-colors duration-200 [color-scheme:dark] hover:border-white/20"
+              />
+            </div>
+            <div className="flex-1 relative">
+              <label className="absolute top-1.5 left-4 font-sans text-[9px] tracking-[0.3em] uppercase text-text-muted pointer-events-none">Time</label>
+              <select
+                defaultValue=""
+                className="w-full bg-white/[0.05] border border-white/[0.08] text-text-primary font-sans text-sm px-4 pt-5 pb-2 focus:outline-none focus:border-accent-teal transition-colors duration-200 appearance-none hover:border-white/20"
+              >
+                <option value="" disabled className="bg-bg-primary">Select time</option>
+                {timeSlots.map(t => <option key={t} value={t} className="bg-bg-primary">{t}</option>)}
+              </select>
+            </div>
+            <div className="flex-1 relative">
+              <label className="absolute top-1.5 left-4 font-sans text-[9px] tracking-[0.3em] uppercase text-text-muted pointer-events-none">Guests</label>
+              <select
+                defaultValue=""
+                className="w-full bg-white/[0.05] border border-white/[0.08] text-text-primary font-sans text-sm px-4 pt-5 pb-2 focus:outline-none focus:border-accent-teal transition-colors duration-200 appearance-none hover:border-white/20"
+              >
+                <option value="" disabled className="bg-bg-primary">Select guests</option>
+                {guestOptions.map(g => <option key={g} value={g} className="bg-bg-primary">{g}</option>)}
+              </select>
+            </div>
+          </div>
+          <button
+            type="submit"
+            className="flex-shrink-0 bg-accent-teal text-bg-primary font-sans text-xs tracking-widest uppercase px-8 py-4 hover:bg-accent-teal/90 transition-colors duration-300 font-medium whitespace-nowrap"
+          >
+            Book a Table
+          </button>
+        </form>
+      </motion.div>
     </section>
   )
 }

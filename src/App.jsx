@@ -2,6 +2,7 @@ import Navbar from './components/Navbar'
 import Hero from './components/Hero'
 import Ticker from './components/Ticker'
 import About from './components/About'
+import CinematicBreak from './components/CinematicBreak'
 import Beers from './components/Beers'
 import Food from './components/Food'
 import Cocktails from './components/Cocktails'
@@ -20,7 +21,7 @@ export default function App() {
       <Hero />
       <Ticker />
       <About />
-      <Divider />
+      <CinematicBreak />
       <Beers />
       <Divider />
       <Food />

@@ -40,19 +40,35 @@ export default function About() {
               alt="Arena Brewhouse brewery interior"
               className="absolute inset-0 w-full h-full object-cover"
             />
-            {/* Dark teal tint overlay for brand cohesion */}
+            {/* Gradient overlay */}
             <div
               className="absolute inset-0"
-              style={{ background: 'linear-gradient(180deg, rgba(8,8,16,0.2) 0%, rgba(8,8,16,0.55) 100%)' }}
+              style={{ background: 'linear-gradient(180deg, rgba(8,8,16,0.15) 0%, rgba(8,8,16,0.65) 100%)' }}
             />
 
-            {/* Decorative pyramid outline on top of image */}
+            {/* Decorative pyramid outline */}
             <div className="absolute inset-0 flex items-center justify-center">
-              <svg viewBox="0 0 200 200" className="w-40 h-40 opacity-20" fill="none">
+              <svg viewBox="0 0 200 200" className="w-40 h-40 opacity-[0.18]" fill="none">
                 <polygon points="100,10 190,100 100,190 10,100" stroke="#1ABFAE" strokeWidth="1" />
                 <polygon points="100,30 170,100 100,170 30,100" stroke="#C9A84C" strokeWidth="0.5" />
                 <polygon points="100,55 145,100 100,145 55,100" stroke="#1ABFAE" strokeWidth="0.5" />
               </svg>
+            </div>
+
+            {/* Script italic text overlay — bottom left */}
+            <div className="absolute bottom-0 left-0 right-0 p-7 pointer-events-none">
+              <p
+                className="font-serif italic text-white/40 leading-none select-none"
+                style={{ fontSize: 'clamp(22px, 3.5vw, 40px)' }}
+              >
+                Est. 2021
+              </p>
+              <p
+                className="font-serif italic text-white/25 leading-none select-none mt-1"
+                style={{ fontSize: 'clamp(14px, 2vw, 22px)' }}
+              >
+                Indiranagar, Bangalore
+              </p>
             </div>
           </div>
 
@@ -66,8 +82,8 @@ export default function About() {
           animate={inView ? { opacity: 1, x: 0 } : {}}
           transition={{ duration: 0.9, delay: 0.15, ease: [0.22, 1, 0.36, 1] }}
         >
-          <p className="font-sans text-xs tracking-[0.4em] uppercase text-accent-teal mb-4">
-            The Arena Experience
+          <p className="font-sans text-xs tracking-[0.4em] uppercase text-text-muted mb-4">
+            — The Arena Experience —
           </p>
           <h2 className="font-display text-5xl md:text-6xl lg:text-7xl leading-none tracking-wide text-text-primary mb-6">
             WHERE CRAFT MEETS CULTURE

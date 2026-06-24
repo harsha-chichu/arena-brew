@@ -64,8 +64,8 @@ export default function Reservation() {
             animate={inView ? { opacity: 1, x: 0 } : {}}
             transition={{ duration: 0.9, ease: [0.22, 1, 0.36, 1] }}
           >
-            <p className="font-sans text-xs tracking-[0.4em] uppercase text-accent-gold mb-4">
-              Visit Us
+            <p className="font-sans text-xs tracking-[0.4em] uppercase text-text-muted mb-4">
+              — Visit Us —
             </p>
             <h2 className="font-display text-5xl md:text-6xl lg:text-7xl leading-none tracking-wide text-text-primary mb-10">
               FIND THE<br />ARENA

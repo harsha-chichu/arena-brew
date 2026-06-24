@@ -63,8 +63,8 @@ export default function Food() {
               animate={inView ? { opacity: 1, y: 0 } : {}}
               transition={{ duration: 0.8 }}
             >
-              <p className="font-sans text-xs tracking-[0.4em] uppercase text-accent-gold mb-3">
-                A Global Kitchen
+              <p className="font-sans text-xs tracking-[0.4em] uppercase text-text-muted mb-3">
+                — A Global Kitchen —
               </p>
               <h2 className="font-display leading-none tracking-wide text-text-primary" style={{ fontSize: 'clamp(64px, 12vw, 140px)' }}>
                 BREW<br />KITCHEN

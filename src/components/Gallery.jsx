@@ -58,8 +58,8 @@ export default function Gallery() {
           transition={{ duration: 0.8 }}
           className="mb-14 md:mb-16"
         >
-          <p className="font-sans text-xs tracking-[0.4em] uppercase text-accent-silver mb-3">
-            Three Floors, One Experience
+          <p className="font-sans text-xs tracking-[0.4em] uppercase text-text-muted mb-3">
+            — Three Floors, One Experience —
           </p>
           <h2 className="font-display text-6xl md:text-8xl leading-none tracking-wide text-text-primary">
             THE EXPERIENCE

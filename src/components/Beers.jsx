@@ -73,8 +73,8 @@ export default function Beers() {
             animate={inView ? { opacity: 1, y: 0 } : {}}
             transition={{ duration: 0.8 }}
           >
-            <p className="font-sans text-xs tracking-[0.4em] uppercase text-accent-teal mb-3">
-              In-house Microbrewery
+            <p className="font-sans text-xs tracking-[0.4em] uppercase text-text-muted mb-3">
+              — In-house Microbrewery —
             </p>
             <h2 className="font-display text-6xl md:text-8xl leading-none tracking-wide text-text-primary">
               OUR BREWS
