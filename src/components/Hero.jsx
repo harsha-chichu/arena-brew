@@ -1,4 +1,5 @@
 import { motion } from 'framer-motion'
+import heroBg from '../assets/hero.png'
 
 const timeSlots = ['12:00 PM', '1:00 PM', '2:00 PM', '6:00 PM', '7:00 PM', '8:00 PM', '9:00 PM', '10:00 PM']
 const guestOptions = ['1–2 Guests', '3–4 Guests', '5–8 Guests', '9+ Guests']
@@ -9,7 +10,7 @@ export default function Hero() {
 
       {/* Background photo */}
       <img
-        src="https://images.pexels.com/photos/5490965/pexels-photo-5490965.jpeg?auto=compress&cs=tinysrgb&w=1920"
+        src={heroBg}
         alt=""
         aria-hidden="true"
         className="absolute inset-0 w-full h-full object-cover object-center"
