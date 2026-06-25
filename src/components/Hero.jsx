@@ -1,8 +1,5 @@
 import { motion } from 'framer-motion'
 
-const timeSlots = ['12:00 PM', '1:00 PM', '2:00 PM', '6:00 PM', '7:00 PM', '8:00 PM', '9:00 PM', '10:00 PM']
-const guestOptions = ['1–2 Guests', '3–4 Guests', '5–8 Guests', '9+ Guests']
-
 export default function Hero() {
   return (
     <section className="relative min-h-screen overflow-hidden">
@@ -127,56 +124,13 @@ export default function Hero() {
         className="absolute bottom-0 left-0 right-0 z-20 border-t border-white/[0.08]"
         style={{ background: 'rgba(8,8,16,0.85)', backdropFilter: 'blur(20px)' }}
       >
-        <div className="max-w-[1400px] mx-auto px-6 md:px-14 py-4 md:py-5">
-          <div className="flex flex-col sm:flex-row items-stretch sm:items-center gap-3">
-
-            {/* Date */}
-            <div className="flex-1 flex flex-col gap-1">
-              <label className="font-sans text-[9px] tracking-[0.35em] uppercase text-text-muted">Date</label>
-              <input
-                type="date"
-                className="bg-transparent border-b border-white/15 text-text-primary font-sans text-sm pb-1.5 focus:outline-none focus:border-accent-teal transition-colors duration-200 [color-scheme:dark]"
-              />
-            </div>
-
-            {/* Divider */}
-            <div className="hidden sm:block w-px h-10 bg-white/10 self-end mb-1" />
-
-            {/* Time */}
-            <div className="flex-1 flex flex-col gap-1">
-              <label className="font-sans text-[9px] tracking-[0.35em] uppercase text-text-muted">Time</label>
-              <select
-                defaultValue=""
-                className="bg-transparent border-b border-white/15 text-text-primary font-sans text-sm pb-1.5 focus:outline-none focus:border-accent-teal transition-colors duration-200 appearance-none"
-              >
-                <option value="" disabled>Select time</option>
-                {timeSlots.map(t => <option key={t} value={t}>{t}</option>)}
-              </select>
-            </div>
-
-            {/* Divider */}
-            <div className="hidden sm:block w-px h-10 bg-white/10 self-end mb-1" />
-
-            {/* Guests */}
-            <div className="flex-1 flex flex-col gap-1">
-              <label className="font-sans text-[9px] tracking-[0.35em] uppercase text-text-muted">Guests</label>
-              <select
-                defaultValue=""
-                className="bg-transparent border-b border-white/15 text-text-primary font-sans text-sm pb-1.5 focus:outline-none focus:border-accent-teal transition-colors duration-200 appearance-none"
-              >
-                <option value="" disabled>Select guests</option>
-                {guestOptions.map(g => <option key={g} value={g}>{g}</option>)}
-              </select>
-            </div>
-
-            {/* CTA */}
-            <a
-              href="#contact"
-              className="sm:ml-4 px-7 py-3 bg-accent-teal text-bg-primary font-sans text-xs tracking-widest uppercase font-medium hover:bg-accent-teal/90 transition-colors duration-300 text-center whitespace-nowrap self-end"
-            >
-              Book Now
-            </a>
-          </div>
+        <div className="max-w-[1400px] mx-auto px-6 md:px-14 py-4 md:py-5 flex justify-end">
+          <a
+            href="#contact"
+            className="px-8 py-3 bg-accent-teal text-bg-primary font-sans text-xs tracking-widest uppercase font-medium hover:bg-accent-teal/90 transition-colors duration-300 text-center whitespace-nowrap"
+          >
+            Book Now
+          </a>
         </div>
       </motion.div>
     </section>
