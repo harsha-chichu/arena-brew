@@ -1,6 +1,5 @@
 import { motion, useInView } from 'framer-motion'
 import { useRef } from 'react'
-import heroBg from '../assets/hero.png'
 
 export default function CinematicBreak() {
   const ref = useRef(null)
@@ -9,7 +8,7 @@ export default function CinematicBreak() {
   return (
     <section className="relative h-[50vh] md:h-[65vh] overflow-hidden" ref={ref}>
       <img
-        src={heroBg}
+        src="https://images.pexels.com/photos/1283219/pexels-photo-1283219.jpeg?auto=compress&cs=tinysrgb&w=1920"
         alt=""
         aria-hidden="true"
         className="absolute inset-0 w-full h-full object-cover object-center"
